@@ -54,8 +54,8 @@ class PayloadsTest(unittest.TestCase):
 
     
     def test_login(self):
-        expected = """{"username": "username", "password": "password"}"""
-        payload = payloads.login("username", "password")
+        expected = """{"username": "username", "token": "token"}"""
+        payload = payloads.login("username", "token")
         assert compare_json(payload, expected)
 
 

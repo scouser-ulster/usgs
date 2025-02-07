@@ -84,8 +84,8 @@ def usgs():
 
 @click.command()
 @click.argument("username", envvar='USGS_USERNAME')
-@click.argument("password", envvar='USGS_PASSWORD')
-def cycle_token(username, password):
+@click.argument("token", envvar='USGS_TOKEN')
+def cycle_token(username, token):
 
     credential_filepath = os.path.join(os.path.expanduser("~"), ".usgs")
     with open(credential_filepath) as f:
@@ -97,7 +97,7 @@ def cycle_token(username, password):
     click.echo('The token lifetime is {} seconds'.format(token_lifetime))
     if token_lifetime > approx_two_hours:
         api.logout()
-        api.login(username, password)
+        api.login(username, token)
 
 
 @click.command()
@@ -139,9 +139,9 @@ def download_request(dataset, entity_id, product_id, api_key):
 
 @click.command()
 @click.argument("username", envvar='USGS_USERNAME')
-@click.argument("password", envvar='USGS_PASSWORD')
-def login(username, password):
-    click.echo(api.login(username, password))
+@click.argument("token", envvar='USGS_TOKEN')
+def login(username, token):
+    click.echo(api.login(username, token))
 
 
 @click.command()

@@ -17,7 +17,7 @@ def create_snapshots():
     Run requests against USGS API for use in tests.
     """
 
-    api_key = api.login(os.environ['USGS_USERNAME'], os.environ['USGS_PASSWORD'])
+    api_key = api.login(os.environ['USGS_USERNAME'], os.environ['USGS_TOKEN'])
 
     # Dataset Fields
     response = api.dataset_fields("LANDSAT_8_C1", "EE", api_key=api_key)
