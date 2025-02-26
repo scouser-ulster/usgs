@@ -124,18 +124,18 @@ def dataset_search(dataset, catalog, start_date=None, end_date=None, ll=None, ur
 
     return json.dumps(payload)
 
-def login(username, password):
+def login(username, token):
     """
     Upon a successful login, an API key will be returned. This key will be active
     for two hours and should be destroyed upon final use of the service by calling
     the logout method.
 
     :param str username:
-    :param str password:
+    :param str token:
     """
     payload = {
         "username": username,
-        "password": password
+        "token": token
     }
 
     return json.dumps(payload)
